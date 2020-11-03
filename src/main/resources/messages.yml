@@ -1,0 +1,59 @@
+# - - - Embeds - - -
+# Choose color codes from https://www.htmlcolor-picker.com/
+
+clearbanlog-title: "Banlog cleared"
+clearbanlog-description: "[0]'s banlog has been cleared."
+clearbanlog-color: "#F3E710"
+
+clearmutelog-title: "Mutelog cleared"
+clearmutelog-description: "[0]'s mutelog has been cleared."
+clearmutelog-color: "#F3E710"
+
+clearwarnlog-title: "Warnlog cleared"
+clearwarnlog-description: "[0]'s warnlog has been cleared."
+clearwarnlog-color: "#F3E710"
+
+deleteban-title: "Ban entry deleted"
+deleteban-description: "The ban [0] has been deleted."
+deleteban-color: "#F10909"
+
+deletemute-title: "Mute entry deleted"
+deletemute-description: "The mute [0] has been deleted."
+deletemute-color: "#F10909"
+
+deletewarn-title: "Warn entry deleted"
+deletewarn-description: "The warn [0] has been deleted."
+deletewarn-color: "#F10909"
+
+playerban-title: "Player banned"
+playerban-description: "The player [0] has been banned."
+playerban-id: "Identification"
+playerban-reason: "Reason"
+playerban-banner: "Banned by"
+playerban-color: "#0960F1"
+
+playermute-title: "Player muted"
+playermute-description: "The player [0] has been muted."
+playermute-id: "Identification"
+playermute-reason: "Reason"
+playermute-banner: "Muted by"
+playermute-color: "#0960F1"
+
+playerwarn-title: "Player warned"
+playerwarn-description: "The player [0] has been warned."
+playerwarn-id: "Identification"
+playerwarn-reason: "Reason"
+playerwarn-banner: "Warned by"
+playerwarn-color: "#0960F1"
+
+playerkick-title: "Player kicked"
+playerkick-description: "The player [0] has been kicked by [1]."
+playerkick-color: "#0960F1"
+
+playerunban-title: "Player unbanned"
+playerunban-description: "The player [0] has been unbanned."
+playerunban-color: "#17D11A"
+
+playerunmute-title: "Player unmuted"
+playerunmute-description: "The player [0] has been unmuted."
+playerunmute-color: "#17D11A"
