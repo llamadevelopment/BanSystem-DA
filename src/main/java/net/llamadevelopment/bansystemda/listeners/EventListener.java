@@ -5,6 +5,7 @@ import club.minnced.discord.webhook.send.WebhookEmbed;
 import club.minnced.discord.webhook.send.WebhookEmbedBuilder;
 import cn.nukkit.event.EventHandler;
 import cn.nukkit.event.Listener;
+import net.llamadevelopment.bansystem.BanSystem;
 import net.llamadevelopment.bansystem.components.event.*;
 import net.llamadevelopment.bansystemda.BanSystemDA;
 import net.llamadevelopment.bansystemda.components.language.Language;
@@ -27,7 +28,7 @@ public class EventListener implements Listener {
             TemporalAccessor accessor = Instant.ofEpochMilli(System.currentTimeMillis());
             WebhookEmbed embed = new WebhookEmbedBuilder()
                     .setTitle(new WebhookEmbed.EmbedTitle(Language.getNP("clearbanlog-title"), ""))
-                    .setDescription(Language.getNP("clearbanlog-description", event.getTarget()))
+                    .setDescription(Language.getNP("clearbanlog-description", event.getTarget(), event.getExecutor()))
                     .setColor(Color.decode(Language.getNP("clearbanlog-color")).getRGB())
                     .setTimestamp(accessor)
                     .build();
@@ -44,7 +45,7 @@ public class EventListener implements Listener {
             TemporalAccessor accessor = Instant.ofEpochMilli(System.currentTimeMillis());
             WebhookEmbed embed = new WebhookEmbedBuilder()
                     .setTitle(new WebhookEmbed.EmbedTitle(Language.getNP("clearmutelog-title"), ""))
-                    .setDescription(Language.getNP("clearmutelog-description", event.getTarget()))
+                    .setDescription(Language.getNP("clearmutelog-description", event.getTarget(), event.getExecutor()))
                     .setColor(Color.decode(Language.getNP("clearmutelog-color")).getRGB())
                     .setTimestamp(accessor)
                     .build();
@@ -61,7 +62,7 @@ public class EventListener implements Listener {
             TemporalAccessor accessor = Instant.ofEpochMilli(System.currentTimeMillis());
             WebhookEmbed embed = new WebhookEmbedBuilder()
                     .setTitle(new WebhookEmbed.EmbedTitle(Language.getNP("clearwarnlog-title"), ""))
-                    .setDescription(Language.getNP("clearwarnlog-description", event.getTarget()))
+                    .setDescription(Language.getNP("clearwarnlog-description", event.getTarget(), event.getExecutor()))
                     .setColor(Color.decode(Language.getNP("clearwarnlog-color")).getRGB())
                     .setTimestamp(accessor)
                     .build();
@@ -78,7 +79,7 @@ public class EventListener implements Listener {
             TemporalAccessor accessor = Instant.ofEpochMilli(System.currentTimeMillis());
             WebhookEmbed embed = new WebhookEmbedBuilder()
                     .setTitle(new WebhookEmbed.EmbedTitle(Language.getNP("deleteban-title"), ""))
-                    .setDescription(Language.getNP("deleteban-description", event.getId()))
+                    .setDescription(Language.getNP("deleteban-description", event.getId(), event.getExecutor()))
                     .setColor(Color.decode(Language.getNP("deleteban-color")).getRGB())
                     .setTimestamp(accessor)
                     .build();
@@ -95,7 +96,7 @@ public class EventListener implements Listener {
             TemporalAccessor accessor = Instant.ofEpochMilli(System.currentTimeMillis());
             WebhookEmbed embed = new WebhookEmbedBuilder()
                     .setTitle(new WebhookEmbed.EmbedTitle(Language.getNP("deletemute-title"), ""))
-                    .setDescription(Language.getNP("deletemute-description", event.getId()))
+                    .setDescription(Language.getNP("deletemute-description", event.getId(), event.getExecutor()))
                     .setColor(Color.decode(Language.getNP("deletemute-color")).getRGB())
                     .setTimestamp(accessor)
                     .build();
@@ -112,7 +113,7 @@ public class EventListener implements Listener {
             TemporalAccessor accessor = Instant.ofEpochMilli(System.currentTimeMillis());
             WebhookEmbed embed = new WebhookEmbedBuilder()
                     .setTitle(new WebhookEmbed.EmbedTitle(Language.getNP("deletewarn-title"), ""))
-                    .setDescription(Language.getNP("deletewarn-description", event.getId()))
+                    .setDescription(Language.getNP("deletewarn-description", event.getId(), event.getExecutor()))
                     .setColor(Color.decode(Language.getNP("deletewarn-color")).getRGB())
                     .setTimestamp(accessor)
                     .build();
@@ -186,7 +187,7 @@ public class EventListener implements Listener {
             TemporalAccessor accessor = Instant.ofEpochMilli(System.currentTimeMillis());
             WebhookEmbed embed = new WebhookEmbedBuilder()
                     .setTitle(new WebhookEmbed.EmbedTitle(Language.getNP("playerunban-title"), ""))
-                    .setDescription(Language.getNP("playerunban-description", event.getTarget()))
+                    .setDescription(Language.getNP("playerunban-description", event.getTarget(), event.getExecutor()))
                     .setColor(Color.decode(Language.getNP("playerunban-color")).getRGB())
                     .setTimestamp(accessor)
                     .build();
@@ -203,7 +204,7 @@ public class EventListener implements Listener {
             TemporalAccessor accessor = Instant.ofEpochMilli(System.currentTimeMillis());
             WebhookEmbed embed = new WebhookEmbedBuilder()
                     .setTitle(new WebhookEmbed.EmbedTitle(Language.getNP("playerunmute-title"), ""))
-                    .setDescription(Language.getNP("playerunmute-description", event.getTarget()))
+                    .setDescription(Language.getNP("playerunmute-description", event.getTarget(), event.getExecutor()))
                     .setColor(Color.decode(Language.getNP("playerunmute-color")).getRGB())
                     .setTimestamp(accessor)
                     .build();
@@ -225,6 +226,78 @@ public class EventListener implements Listener {
                     .addField(new WebhookEmbed.EmbedField(true, Language.getNP("playerwarn-reason"), event.getWarn().getReason()))
                     .addField(new WebhookEmbed.EmbedField(true, Language.getNP("playerwarn-banner"), event.getWarn().getCreator()))
                     .setColor(Color.decode(Language.getNP("playerwarn-color")).getRGB())
+                    .setTimestamp(accessor)
+                    .build();
+            client.send(embed).thenAccept(readonlyMessage -> {
+            });
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @EventHandler
+    public void on(EditBanReasonEvent event) {
+        try (WebhookClient client = WebhookClient.withUrl(this.url)) {
+            TemporalAccessor accessor = Instant.ofEpochMilli(System.currentTimeMillis());
+            WebhookEmbed embed = new WebhookEmbedBuilder()
+                    .setTitle(new WebhookEmbed.EmbedTitle(Language.getNP("editbanreason-title"), ""))
+                    .setDescription(Language.getNP("editbanreason-description", event.getPlayer(), event.getExecutor()))
+                    .addField(new WebhookEmbed.EmbedField(true, Language.getNP("editbanreason-reason"), event.getReason()))
+                    .setColor(Color.decode(Language.getNP("editbanreason-color")).getRGB())
+                    .setTimestamp(accessor)
+                    .build();
+            client.send(embed).thenAccept(readonlyMessage -> {
+            });
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @EventHandler
+    public void on(EditMuteReasonEvent event) {
+        try (WebhookClient client = WebhookClient.withUrl(this.url)) {
+            TemporalAccessor accessor = Instant.ofEpochMilli(System.currentTimeMillis());
+            WebhookEmbed embed = new WebhookEmbedBuilder()
+                    .setTitle(new WebhookEmbed.EmbedTitle(Language.getNP("editmutereason-title"), ""))
+                    .setDescription(Language.getNP("editmutereason-description", event.getPlayer(), event.getExecutor()))
+                    .addField(new WebhookEmbed.EmbedField(true, Language.getNP("editmutereason-reason"), event.getReason()))
+                    .setColor(Color.decode(Language.getNP("editmutereason-color")).getRGB())
+                    .setTimestamp(accessor)
+                    .build();
+            client.send(embed).thenAccept(readonlyMessage -> {
+            });
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @EventHandler
+    public void on(EditBanTimeEvent event) {
+        try (WebhookClient client = WebhookClient.withUrl(this.url)) {
+            TemporalAccessor accessor = Instant.ofEpochMilli(System.currentTimeMillis());
+            WebhookEmbed embed = new WebhookEmbedBuilder()
+                    .setTitle(new WebhookEmbed.EmbedTitle(Language.getNP("editbantime-title"), ""))
+                    .setDescription(Language.getNP("editbantime-description", event.getPlayer(), event.getExecutor()))
+                    .addField(new WebhookEmbed.EmbedField(true, Language.getNP("editbantime-time"), BanSystem.getApi().getProvider().getRemainingTime(event.getTime())))
+                    .setColor(Color.decode(Language.getNP("editbantime-color")).getRGB())
+                    .setTimestamp(accessor)
+                    .build();
+            client.send(embed).thenAccept(readonlyMessage -> {
+            });
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @EventHandler
+    public void on(EditMuteTimeEvent event) {
+        try (WebhookClient client = WebhookClient.withUrl(this.url)) {
+            TemporalAccessor accessor = Instant.ofEpochMilli(System.currentTimeMillis());
+            WebhookEmbed embed = new WebhookEmbedBuilder()
+                    .setTitle(new WebhookEmbed.EmbedTitle(Language.getNP("editmutetime-title"), ""))
+                    .setDescription(Language.getNP("editmutetime-description", event.getPlayer(), event.getExecutor()))
+                    .addField(new WebhookEmbed.EmbedField(true, Language.getNP("editmutetime-time"), BanSystem.getApi().getProvider().getRemainingTime(event.getTime())))
+                    .setColor(Color.decode(Language.getNP("editmutetime-color")).getRGB())
                     .setTimestamp(accessor)
                     .build();
             client.send(embed).thenAccept(readonlyMessage -> {

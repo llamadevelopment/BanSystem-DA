@@ -2,27 +2,27 @@
 # Choose color codes from https://www.htmlcolor-picker.com/
 
 clearbanlog-title: "Banlog cleared"
-clearbanlog-description: "[0]'s banlog has been cleared."
+clearbanlog-description: "[0]'s banlog has been cleared by [1]."
 clearbanlog-color: "#F3E710"
 
 clearmutelog-title: "Mutelog cleared"
-clearmutelog-description: "[0]'s mutelog has been cleared."
+clearmutelog-description: "[0]'s mutelog has been cleared by [1]."
 clearmutelog-color: "#F3E710"
 
 clearwarnlog-title: "Warnlog cleared"
-clearwarnlog-description: "[0]'s warnlog has been cleared."
+clearwarnlog-description: "[0]'s warnlog has been cleared by [1]."
 clearwarnlog-color: "#F3E710"
 
 deleteban-title: "Ban entry deleted"
-deleteban-description: "The ban [0] has been deleted."
+deleteban-description: "The ban [0] has been deleted by [1]."
 deleteban-color: "#F10909"
 
 deletemute-title: "Mute entry deleted"
-deletemute-description: "The mute [0] has been deleted."
+deletemute-description: "The mute [0] has been deleted by [1]."
 deletemute-color: "#F10909"
 
 deletewarn-title: "Warn entry deleted"
-deletewarn-description: "The warn [0] has been deleted."
+deletewarn-description: "The warn [0] has been deleted by [1]."
 deletewarn-color: "#F10909"
 
 playerban-title: "Player banned"
@@ -51,9 +51,29 @@ playerkick-description: "The player [0] has been kicked by [1]."
 playerkick-color: "#0960F1"
 
 playerunban-title: "Player unbanned"
-playerunban-description: "The player [0] has been unbanned."
+playerunban-description: "The player [0] has been unbanned by [1]."
 playerunban-color: "#17D11A"
 
 playerunmute-title: "Player unmuted"
-playerunmute-description: "The player [0] has been unmuted."
+playerunmute-description: "The player [0] has been unmuted by [1]."
 playerunmute-color: "#17D11A"
+
+editbanreason-title: "Ban reason edited"
+editbanreason-description: "The ban reason of [0] has been changed by [1]."
+editbanreason-reason: "New reason"
+editbanreason-color: "#F10909"
+
+editmutereason-title: "Mute reason edited"
+editmutereason-description: "The mute reason of [0] has been changed by [1]."
+editmutereason-reason: "New reason"
+editmutereason-color: "#F10909"
+
+editbantime-title: "Ban time edited"
+editbantime-description: "The ban time of [0] has been changed by [1]."
+editbantime-reason: "Remaining time"
+editbantime-color: "#F10909"
+
+editmutetime-title: "Mute time edited"
+editmutetime-description: "The mute time of [0] has been changed by [1]."
+editmutetime-reason: "Remaining time"
+editmutetime-color: "#F10909"
