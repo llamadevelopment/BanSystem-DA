@@ -3,7 +3,7 @@
 Discord Announcement-Addon for BanSystemNK
 
 > * Download the latest version here: [Download](https://cloudburstmc.org/resources/bansystem-discord-addon.575/download)
-> * Browse other versions of BanSystem here: [Browse](https://cloudburstmc.org/resources/bansystem-discord-addon.575/history)
+> * Browse other versions of BanSystem-DA here: [Browse](https://cloudburstmc.org/resources/bansystem-discord-addon.575/history)
 
 ### Join our Discord:
 [![d](https://img.shields.io/discord/323953253458903040.svg)](https://discord.gg/Qcuv2f6)
